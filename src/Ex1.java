@@ -1,3 +1,5 @@
+//Программа для поиска минимального из двух чисел
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

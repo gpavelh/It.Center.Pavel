@@ -1,3 +1,5 @@
+//Вывод на экран арифмтической и геометрической прогрессии с шагом 2 и длинной "а"
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

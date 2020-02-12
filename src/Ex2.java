@@ -1,3 +1,5 @@
+//Программа описывает введенное число. Отрицательное/положительное, четное/нечетное, нуль
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
