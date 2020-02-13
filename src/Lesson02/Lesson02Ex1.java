@@ -14,11 +14,14 @@ public class Lesson02Ex1 {
         Snic snic = new Snic("Snickers Super",2.7, "b2");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Напиток:       " + coca.name +"     Цена:  " + coca.cost + "$"+ "     Позиция:  " + coca.position);
-        System.out.println("Шоколадка:     " + mars.name +"        Цена:  " + mars.cost + "$"+ "     Позиция:  " + mars.position);
-        System.out.println("Напиток:       " + milk.name +"       Цена:  " + milk.cost + "$"+ "     Позиция:  " + milk.position);
-        System.out.println("Шоколадка:     " + snic.name +"        Цена:  " + snic.cost + "$"+ "     Позиция:  " + snic.position);
-        System.out.println("");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("|                          SUPER WENDY                              |");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("| Напиток:       " + coca.name +"     Цена:  " + coca.cost + "$"+ "     Позиция:  " + coca.position+" |");
+        System.out.println("| Шоколадка:     " + mars.name +"        Цена:  " + mars.cost + "$"+ "     Позиция:  " + mars.position+" |");
+        System.out.println("| Напиток:       " + milk.name +"       Цена:  " + milk.cost + "$"+ "     Позиция:  " + milk.position+" |");
+        System.out.println("| Шоколадка:     " + snic.name +"        Цена:  " + snic.cost + "$"+ "     Позиция:  " + snic.position+" |");
+        System.out.println("---------------------------------------------------------------------");
         System.out.println("Внесите сумму в $: ");
         double a = Double.parseDouble(reader.readLine());
         System.out.println("Укажите позицию товара в формате \"Ряд\" и \"Номер\" (Пример: a2): ");
