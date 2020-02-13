@@ -1,6 +1,6 @@
-//Вывод на экран таблицы умножения
+package Lesson01;//Вывод на экран таблицы умножения
 
-public class Ex3 {
+public class Lesson01Ex3 {
     public static void main(String [] args){
         for (int i = 1; i <=10; i++){
             for(int y = 1; y <= 10; y++){
