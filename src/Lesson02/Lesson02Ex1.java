@@ -78,10 +78,10 @@ public class Lesson02Ex1 {
             if (a > snic.cost){
                 double q1 = a - snic.cost;
                 BigDecimal q = new BigDecimal(q1).setScale(2,RoundingMode.HALF_UP);
-                System.out.println("Спасибо за покупку  " +mars.name +"!"+" Заберите Вашу сачу: " + q + "$");
+                System.out.println("Спасибо за покупку  " +snic.name +"!"+" Заберите Вашу сачу: " + q + "$");
             }
             else if (a == snic.cost){
-                System.out.println("Спасибо за покупку" +mars.name +"!");
+                System.out.println("Спасибо за покупку" +snic.name +"!");
             }
             else if (a < snic.cost){
                 System.out.println("Недостаточно средств!");
