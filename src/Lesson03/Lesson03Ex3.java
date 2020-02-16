@@ -3,7 +3,6 @@ package Lesson03;//Ряд Фибонначчи
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 public class Lesson03Ex3 {
     public static void main(String[] args) throws IOException {

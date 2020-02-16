@@ -1,8 +1,5 @@
-package Lesson03; //Сортировка массива
+package Lesson03;//Сортировка массива
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
