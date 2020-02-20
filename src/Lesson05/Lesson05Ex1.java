@@ -29,9 +29,15 @@ public class Lesson05Ex1 {
         System.out.println("Внесите сумму в $: ");
         double a = Double.parseDouble(reader.readLine());
         if (a == -9999){
+            System.out.println("--Заведенные продукты--");
             for (Product s : Product.values()) {
                 System.out.println(s);
                 }
+            System.out.println("-------Используются--------");
+            System.out.println(coca.name + "  " + coca.id);
+            System.out.println(mars.name + "     " + mars.id);
+            System.out.println(milk.name + "    " + milk.id);
+            System.out.println(snic.name + "     " + snic.id);
             return;
         }
         System.out.println("Укажите позицию товара в формате \"Ряд\" и \"Номер\" (Пример: a2): ");
@@ -72,6 +78,7 @@ public class Lesson05Ex1 {
         String name;
         Double cost;
         String position;
+        Product id = Product.COLAVAN;
 
         public Coca(String name, double cost, String position){
             this.name = name;
@@ -83,6 +90,7 @@ public class Lesson05Ex1 {
         String name;
         double cost;
         String position;
+        Product id = Product.MARSWNUTS;
 
         public Mars(String name, double cost, String position){
             this.name = name;
@@ -94,6 +102,7 @@ public class Lesson05Ex1 {
         String name;
         double cost;
         String position;
+        Product id = Product.MILKCOUNT;
 
         public Milk(String name, double cost, String position){
             this.name = name;
@@ -105,6 +114,7 @@ public class Lesson05Ex1 {
         String name;
         double cost;
         String position;
+        Product id = Product.SNICSUPER;
 
         public Snic (String name, double cost, String position){
             this.name = name;
