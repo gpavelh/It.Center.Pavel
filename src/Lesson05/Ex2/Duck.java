@@ -17,23 +17,33 @@ public class Duck extends Animal implements Fly, Swim, Run {
     public static void main(String[] args) {
         Duck duck = new Duck("MacDuck");
         System.out.println(duck.getName());
-        duck.animalFly();
-        duck.animalRun();
-        duck.animalSwim();
+        duck.actionFly();
+        duck.actionRun();
+        duck.actionSwim();
     }
 
     @Override
-    public void animalFly() {
+    public void actionFly() {
         System.out.println("Утка летит");
     }
 
     @Override
-    public void animalRun() {
+    public void actionRun() {
         System.out.println("Утка бежит");
     }
 
     @Override
-    public void animalSwim() {
+    public void actionFastRun() {
+        System.out.println("Утка быстро бежит");
+    }
+
+    @Override
+    public void actionSwim() {
         System.out.println("Утка плавает");
+    }
+
+    @Override
+    public void actionFastSwim() {
+        System.out.println("Утка быстро плавает");
     }
 }

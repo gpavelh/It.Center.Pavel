@@ -16,18 +16,23 @@ public class Bird extends Animal implements Fly, Swim {
     public static void main(String[] args) {
         Bird bird = new Bird("Kesha");
         System.out.println(bird.getName());
-        bird.animalFly();
-        bird.animalSwim();
+        bird.actionFly();
+        bird.actionSwim();
     }
 
     @Override
-    public void animalFly() {
+    public void actionFly() {
         System.out.println("Птица летит");
 
     }
 
     @Override
-    public void animalSwim() {
+    public void actionSwim() {
         System.out.println("Птица плавает");
+    }
+
+    @Override
+    public void actionFastSwim() {
+        System.out.println("Птица быстро плавает");
     }
 }
