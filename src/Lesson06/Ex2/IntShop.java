@@ -1,25 +1,25 @@
 package Lesson06.Ex2;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class IntShop implements Basket{
-    List<Product> prod = new ArrayList();
+public class IntShop implements Basket {
+    private List<Product> products = new ArrayList();
+
     @Override
     public void addProduct(String product, int quantity) {
-        prod.add(new Product(product,quantity));
+        products.add(new Product(product, quantity));
     }
 
     @Override
     public void removeProduct(String product) {
-        prod.remove(product);
+        products.remove(product);
     }
 
     @Override
     public void updateProductQuantity(String product, int quantity) {
-        for (Product s: prod) {
-            if (s.product.equals(product)){
+        for (Product s : products) {
+            if (s.product.equals(product)) {
                 s.quantity = s.quantity + quantity;
             }
         }
@@ -27,16 +27,15 @@ public class IntShop implements Basket{
 
     @Override
     public void clear() {
-        for (int i = 0; i <prod.size() ; i++) {
-            prod.remove(i);
-        }
+        products.clear();
     }
 
     @Override
     public List<String> getProducts() {
         List<String> arr = new ArrayList();
-        for (int i = 0; i <= prod.size() ; i++) {
-            arr.set(i, String.valueOf(prod.get(i)));
+        for (Product s : products
+        ) {
+            arr.add(s.getProduct());
         }
         return arr;
     }
@@ -44,25 +43,30 @@ public class IntShop implements Basket{
     @Override
     public int getProductQuantity(String product) {
         int a = 0;
-        for (Product s: prod
-             ) {
-            if (s.product.equals(product)){
+        for (Product s : products
+        ) {
+            if (s.product.equals(product)) {
                 a = s.getQuantity();
             }
         }
         return a;
     }
-    public static class Product{
-        String product;
-        int quantity;
 
-        Product(String product, int quantity){
+    public static class Product {
+        private String product;
+        private int quantity;
+
+        Product(String product, int quantity) {
             this.product = product;
             this.quantity = quantity;
         }
 
         public int getQuantity() {
             return quantity;
+        }
+
+        public String getProduct() {
+            return product;
         }
     }
 
