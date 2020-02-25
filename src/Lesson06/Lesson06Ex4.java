@@ -5,10 +5,10 @@ import java.util.*;
 public class Lesson06Ex4 {
     public Set<String> removeEvenLenght(Set<String> set){
         Set<String> finish = new HashSet<>();
-        for (String s: set
+        for (String q: set
              ) {
-            if (s.length() % 2 != 0) {
-                finish.add(s);
+            if (q.length() % 2 != 0) {
+                finish.add(q);
             }
         }
         return finish;
