@@ -7,8 +7,11 @@ import java.io.InputStreamReader;
 public class Lesson03Ex3 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Введите длинну ряда Фибонначчи: ");
         int a = Integer.parseInt(reader.readLine());
-        System.out.println(fiban(a-1));
+        for (int i = 0; i < a; i++) {
+            System.out.print(fiban(i) + " ");
+        }
     }
     public static int fiban(int a){
         if (a == 0)
