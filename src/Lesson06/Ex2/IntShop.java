@@ -3,6 +3,7 @@ package Lesson06.Ex2; //Корзина оналйн магазина. Реали
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class IntShop implements Basket {
@@ -15,7 +16,13 @@ public class IntShop implements Basket {
 
     @Override //Удаление продукта - removeProduct
     public void removeProduct(String product) {
-        products.remove(product);
+        Iterator<Product> proditer = products.iterator();
+        while (proditer.hasNext()) {
+            Product nextProd = proditer.next();
+            if (nextProd.product.equals(product)) {
+                proditer.remove();
+            }
+        }
     }
 
     @Override //Увеличение кол-ва товара - updateProductQuantity
@@ -78,7 +85,7 @@ public class IntShop implements Basket {
         intShop.addProduct("Headphones", 2);
         intShop.addProduct("Case", 5);
         intShop.removeProduct("Phone");
-        intShop.updateProductQuantity("Headphones",2);
+        intShop.updateProductQuantity("Headphones", 2);
         System.out.println(intShop.getProducts());
         System.out.println(intShop.getProductQuantity("Headphones"));
         intShop.clear();
