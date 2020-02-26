@@ -42,14 +42,14 @@ public class IntShop implements Basket {
 
     @Override
     public int getProductQuantity(String product) {
-        int a = 0;
+        int count = 0;
         for (Product s : products
         ) {
             if (s.product.equals(product)) {
-                a = s.getQuantity();
+                count = s.getQuantity();
             }
         }
-        return a;
+        return count;
     }
 
     public static class Product {
