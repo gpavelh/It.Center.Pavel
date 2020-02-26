@@ -8,20 +8,20 @@ public class Lesson03Ex3 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите длинну ряда Фибонначчи: ");
-        int a = Integer.parseInt(reader.readLine());
-        for (int i = 0; i < a; i++) {
-            System.out.print(fiban(i) + " ");
+        int N = Integer.parseInt(reader.readLine());
+        for (int i = 0; i < N; i++) {
+            System.out.print(fibonacci(i) + " ");
         }
     }
-    public static int fiban(int a){
-        if (a == 0)
+    public static int fibonacci(int N){
+        if (N == 0)
         {
             return 0;
         }
-        if (a == 1)
+        if (N == 1)
         {
             return 1;
         }
-        return fiban(a - 1)  + fiban(a - 2);
+        return fibonacci(N - 1)  + fibonacci(N - 2);
     }
 }
