@@ -1,4 +1,4 @@
-package Lesson04;
+package Lesson04; //Счетчик создания класса Count. Для примера вязто число 10.
 
 public class Lesson04Ex4 {
     public static void main(String[] args) {

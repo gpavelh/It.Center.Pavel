@@ -1,4 +1,4 @@
-package Lesson04;
+package Lesson04; //Автозамена всех слов «бяка» на «вырезано цензурой» и вывод результата в консоль!
 
 public class Lesson04Ex1 {
     public static void main(String[] args) {

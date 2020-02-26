@@ -8,7 +8,7 @@ public class Lesson03Ex3 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int a = Integer.parseInt(reader.readLine());
-        System.out.println(fiban(a));
+        System.out.println(fiban(a-1));
     }
     public static int fiban(int a){
         if (a == 0)

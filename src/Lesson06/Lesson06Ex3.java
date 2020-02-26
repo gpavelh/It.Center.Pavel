@@ -1,4 +1,5 @@
-package Lesson06;
+package Lesson06;//Метод возвращает true, если в мапе нет двух и более
+//одинаковых value, и false в противном случае
 
 import java.util.*;
 
@@ -8,7 +9,6 @@ public class Lesson06Ex3 {
         String[] values = map.values().toArray(new String[0]);
         for (int i = 0; i < values.length; i++) {
             for (int j = 0; j < values.length; j++) {
-                System.out.println(values[i] + "  " + values[j]);
                 if (values[i].equals(values[j]) && i != j) {
                     count++;
                 }

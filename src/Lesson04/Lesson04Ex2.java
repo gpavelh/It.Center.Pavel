@@ -1,4 +1,4 @@
-package Lesson04;
+package Lesson04; //Поэкспериментировать с ключевым словом final
 
 public class Lesson04Ex2 {
     public static void main(String[] args) {

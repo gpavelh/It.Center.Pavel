@@ -1,4 +1,4 @@
-package Lesson06;
+package Lesson06; //Метод возвращает множество, в котором удалены все элементы четной длины
 
 import java.util.*;
 

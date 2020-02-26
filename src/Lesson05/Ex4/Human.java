@@ -1,4 +1,6 @@
-package Lesson05.Ex4;
+package Lesson05.Ex4; //Абстрактный класс Human реализующий интерфейсы «Run» и
+//«Swim» (интерфесы в папке Ex3). Создано 2 наследника класса Human - Dervisee01 и 02
+//с конкретной реализацией методов, которые объявлены в интерфейсах.
 
 import Lesson05.Ex3.Run;
 import Lesson05.Ex3.Swim;

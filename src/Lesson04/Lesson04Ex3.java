@@ -1,4 +1,4 @@
-package Lesson04;
+package Lesson04; //Калькулятор. Следуйте подсказкам в терминале.
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

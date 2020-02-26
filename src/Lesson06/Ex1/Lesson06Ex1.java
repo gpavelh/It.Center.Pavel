@@ -1,4 +1,6 @@
-package Lesson06.Ex1;
+package Lesson06.Ex1; //Реализован PersonSuperComparator, который имплементит Comparator и
+//умеет сравнивать по двум параметрам: возраст и имя.
+
 
 import Lesson06.Ex1.Person;
 import Lesson06.Ex1.PersonSuperComporator;

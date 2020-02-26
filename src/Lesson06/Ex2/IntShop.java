@@ -1,22 +1,24 @@
-package Lesson06.Ex2;
+package Lesson06.Ex2; //Корзина оналйн магазина. Реализованы следующие методы:
+
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class IntShop implements Basket {
-    private List<Product> products = new ArrayList();
+    private ArrayList<Product> products = new ArrayList<>();
 
-    @Override
+    @Override //Добавление продукта - addProduct
     public void addProduct(String product, int quantity) {
         products.add(new Product(product, quantity));
     }
 
-    @Override
+    @Override //Удаление продукта - removeProduct
     public void removeProduct(String product) {
         products.remove(product);
     }
 
-    @Override
+    @Override //Увеличение кол-ва товара - updateProductQuantity
     public void updateProductQuantity(String product, int quantity) {
         for (Product s : products) {
             if (s.product.equals(product)) {
@@ -25,12 +27,12 @@ public class IntShop implements Basket {
         }
     }
 
-    @Override
+    @Override //Удаление списка продуктов - clear
     public void clear() {
         products.clear();
     }
 
-    @Override
+    @Override //Получение списка продуктов - getProducts
     public List<String> getProducts() {
         List<String> arr = new ArrayList();
         for (Product s : products
@@ -40,7 +42,7 @@ public class IntShop implements Basket {
         return arr;
     }
 
-    @Override
+    @Override //получение кол-ва товара - getProducts
     public int getProductQuantity(String product) {
         int count = 0;
         for (Product s : products
@@ -71,8 +73,15 @@ public class IntShop implements Basket {
     }
 
     public static void main(String[] args) {
-
+        IntShop intShop = new IntShop();
+        intShop.addProduct("Phone", 1);
+        intShop.addProduct("Headphones", 2);
+        intShop.addProduct("Case", 5);
+        intShop.removeProduct("Phone");
+        intShop.updateProductQuantity("Headphones",2);
+        System.out.println(intShop.getProducts());
+        System.out.println(intShop.getProductQuantity("Headphones"));
+        intShop.clear();
+        System.out.println(intShop.products);
     }
-
-
 }
