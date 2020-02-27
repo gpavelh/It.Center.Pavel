@@ -13,20 +13,20 @@ public class Lesson04Ex3 {
         System.out.println("Введите второе число: ");
         double b = Double.parseDouble(reader.readLine());
         System.out.println("Выберите тип операции:\n 1 - \"Вычитание\"  2 - \"Сложение\"  3 - \"Умножение\"  4 - \"Деление\"  5 - \"Процент от числа\"");
-        int c = Integer.parseInt(reader.readLine());
-        if (c == 1){
+        int operationType = Integer.parseInt(reader.readLine());
+        if (operationType == 1){
             Calculator.addition(a, b);
         }
-        else if (c == 2){
+        else if (operationType == 2){
             Calculator.subtraction(a, b);
         }
-        else if (c == 3){
+        else if (operationType == 3){
             Calculator.multiplication(a,b);
         }
-        else if (c == 4){
+        else if (operationType == 4){
             Calculator.division(a,b);
         }
-        else if (c == 5) {
+        else if (operationType == 5) {
             Calculator.percent(a, b);
         }
         else
@@ -34,13 +34,13 @@ public class Lesson04Ex3 {
     }
     public static class Calculator {
         public static void addition(double a, double b) {
-            double ans = a + b;
-            if (ans % 1 == 0)
+            double answer = a + b;
+            if (answer % 1 == 0)
             {
-                System.out.println("Ответ: " + (int) (ans));
+                System.out.println("Ответ: " + (int) (answer));
             }
             else {
-            BigDecimal ans1 = new BigDecimal(ans).setScale(1, RoundingMode.HALF_UP);
+            BigDecimal ans1 = new BigDecimal(answer).setScale(1, RoundingMode.HALF_UP);
             System.out.println("Ответ: " + ans1);
             }
         }

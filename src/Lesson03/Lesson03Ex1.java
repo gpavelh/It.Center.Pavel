@@ -7,11 +7,12 @@ import java.util.Scanner;
 public class Lesson03Ex1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
-        int[] arr = new int[a];
-        Random qa = new Random();
+        System.out.println("Укажите количество элементов в массиве: ");
+        int arrLength = scanner.nextInt();
+        int[] arr = new int[arrLength];
+        Random random = new Random();
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = qa.nextInt(99);
+            arr[i] = random.nextInt(99);
         }
         System.out.println("До сортировки: " + Arrays.toString(arr));
 
