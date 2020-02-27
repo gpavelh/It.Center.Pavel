@@ -13,10 +13,10 @@ public class Lesson05Ex1 {
     public enum Product{
         COLAVAN, FANTALIME, MARSWNUTS, MILKCOUNT, MILKSHOKOLATE, SNICSUPER, SNICORIG;}
     public static void main(String[] args) throws IOException {
-        Lesson05Ex1.Coca coca = new Lesson05Ex1.Coca("Кока-Кола Vanilla", 2.4, "a1");
-        Lesson05Ex1.Mars mars = new Lesson05Ex1.Mars("Mars с Орехами", 2.1, "a2");
-        Lesson05Ex1.Milk milk = new Lesson05Ex1.Milk("Домик в деревне", 1.2, "b1");
-        Lesson05Ex1.Snic snic = new Lesson05Ex1.Snic("Snickers Super", 2.7, "b2");
+        Coca coca = new Coca("Кока-Кола Vanilla", 2.4, "a1");
+        Mars mars = new Mars("Mars с Орехами", 2.1, "a2");
+        Milk milk = new Milk("Домик в деревне", 1.2, "b1");
+        Snic snic = new Snic("Snickers Super", 2.7, "b2");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("---------------------------------------------------------------------");
