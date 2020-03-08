@@ -9,8 +9,8 @@ public class Lesson04Ex2 {
     }
     static final class Test extends Lesson04Ex3.Calculator {
 
-        public static void addition(double a, double b) {
-            double answer = a * b;
+        public final static void addition(double a, double b) {
+            final double answer = a * b;
             System.out.println((int)answer);
             }
     }
