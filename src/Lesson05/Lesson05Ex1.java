@@ -1,5 +1,4 @@
-package Lesson05; //Одновление вендингового аппарата. Использование конструктора, enum(при вводе числа -9999, при вводе суммы,
-// открывается "сервисное меню" со всеми заведеными номенклатурами в аппарат) и взаимодействие с пользователем.
+package Lesson05; //Одновление вендингового аппарата. Использование конструктора и взаимодействие с пользователем.
 
 import Lesson02.Lesson02Ex1;
 
@@ -10,117 +9,64 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Lesson05Ex1 {
-    public enum Product{
-        COLAVAN, FANTALIME, MARSWNUTS, MILKCOUNT, MILKSHOKOLATE, SNICSUPER, SNICORIG;}
-    public static void main(String[] args) throws IOException {
-        Coca coca = new Coca("Кока-Кола Vanilla", 2.4, "a1");
-        Mars mars = new Mars("Mars с Орехами", 2.1, "a2");
-        Milk milk = new Milk("Домик в деревне", 1.2, "b1");
-        Snic snic = new Snic("Snickers Super", 2.7, "b2");
+    public enum Product {
+        COLAVAN("Coca", "Кока-Кола Vanilla", 2.4, "a1"),
+        MARSWNUTS("Mars", "Mars с Орехами", 2.1, "a2"),
+        MILKCOUNT("Milk", "Домик в деревне", 1.2, "b1"),
+        SNICSUPER("Snic", "Snickers Super", 2.7, "b2");
+        private final String name;
+        private final String type;
+        private final double cost;
+        private final String position;
 
+        Product(String name, String type, double cost, String position) {
+            this.name = name;
+            this.type = type;
+            this.cost = cost;
+            this.position = position;
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("---------------------------------------------------------------------");
         System.out.println("|                          SUPER WENDY                              |");
         System.out.println("---------------------------------------------------------------------");
-        System.out.println("| Напиток:       " + coca.name + "     Цена:  " + coca.cost + "$" + "     Позиция:  " + coca.position + " |");
-        System.out.println("| Шоколадка:     " + mars.name + "        Цена:  " + mars.cost + "$" + "     Позиция:  " + mars.position + " |");
-        System.out.println("| Напиток:       " + milk.name + "       Цена:  " + milk.cost + "$" + "     Позиция:  " + milk.position + " |");
-        System.out.println("| Шоколадка:     " + snic.name + "        Цена:  " + snic.cost + "$" + "     Позиция:  " + snic.position + " |");
+        System.out.println("| Напиток:       " + Product.COLAVAN.type + "     Цена:  " + Product.COLAVAN.cost + "$" + "     Позиция:  " + Product.COLAVAN.position + " |");
+        System.out.println("| Шоколадка:     " + Product.MARSWNUTS.type + "        Цена:  " + Product.MARSWNUTS.cost + "$" + "     Позиция:  " + Product.MARSWNUTS.position + " |");
+        System.out.println("| Напиток:       " + Product.MILKCOUNT.type + "       Цена:  " + Product.MILKCOUNT.cost + "$" + "     Позиция:  " + Product.MILKCOUNT.position + " |");
+        System.out.println("| Шоколадка:     " + Product.SNICSUPER.type + "        Цена:  " + Product.SNICSUPER.cost + "$" + "     Позиция:  " + Product.SNICSUPER.position + " |");
         System.out.println("---------------------------------------------------------------------");
         System.out.println("Внесите сумму в $: ");
+
         double a = Double.parseDouble(reader.readLine());
-        if (a == -9999){
-            System.out.println("--Заведенные продукты--");
-            for (Product s : Product.values()) {
-                System.out.println(s);
-                }
-            System.out.println("-------Используются--------");
-            System.out.println(coca.name + "  " + coca.id);
-            System.out.println(mars.name + "     " + mars.id);
-            System.out.println(milk.name + "    " + milk.id);
-            System.out.println(snic.name + "     " + snic.id);
-            return;
-        }
         System.out.println("Укажите позицию товара в формате \"Ряд\" и \"Номер\" (Пример: a2): ");
-        String y = reader.readLine();
-        if (y.equals(coca.position)) {
-            method(a, coca.cost);
-        }
-        else if (y.equals(mars.position)) {
-            method(a, mars.cost);
-        }
-        else if (y.equals(milk.position)) {
-            method(a, milk.cost);
-        }
-        else if (y.equals(snic.position)) {
-            method(a, snic.cost);
-        }
-        else {
+        String selectedItem = reader.readLine();
+
+        if (selectedItem.equals(Product.COLAVAN.position)) {
+            method(a, Product.COLAVAN.cost);
+        } else if (selectedItem.equals(Product.MARSWNUTS.position)) {
+            method(a, Product.MARSWNUTS.cost);
+        } else if (selectedItem.equals(Product.MILKCOUNT.position)) {
+            method(a, Product.MILKCOUNT.cost);
+        } else if (selectedItem.equals(Product.SNICSUPER.position)) {
+            method(a, Product.SNICSUPER.cost);
+        } else {
             System.out.println("Ошибка ввода");
         }
     }
-    public static void method(double a, double cost){
+
+    public static void method(double a, double cost) {
         if (a > cost) {
             double q1 = a - cost;
             BigDecimal q = new BigDecimal(q1).setScale(2, RoundingMode.HALF_UP);
             System.out.println("Спасибо за покупку !" + " Заберите Вашу сачу: " + q + "$");
-        }
-        else if (a == cost) {
+        } else if (a == cost) {
             System.out.println("Спасибо за покупку!");
-        }
-        else if (a < cost) {
+        } else if (a < cost) {
             System.out.println("Недостаточно средств!");
-        }
-        else {
+        } else {
             System.out.println("Ошибка ввода");
-        }
-    }
-    public static class Coca{
-        String name;
-        Double cost;
-        String position;
-        Product id = Product.COLAVAN;
-
-        public Coca(String name, double cost, String position){
-            this.name = name;
-            this.cost = cost;
-            this.position = position;
-        }
-    }
-    public static class Mars {
-        String name;
-        double cost;
-        String position;
-        Product id = Product.MARSWNUTS;
-
-        public Mars(String name, double cost, String position){
-            this.name = name;
-            this.cost = cost;
-            this.position = position;
-        }
-    }
-    public static class Milk {
-        String name;
-        double cost;
-        String position;
-        Product id = Product.MILKCOUNT;
-
-        public Milk(String name, double cost, String position){
-            this.name = name;
-            this.cost = cost;
-            this.position = position;
-        }
-    }
-    public static class Snic {
-        String name;
-        double cost;
-        String position;
-        Product id = Product.SNICSUPER;
-
-        public Snic (String name, double cost, String position){
-            this.name = name;
-            this.cost = cost;
-            this.position = position;
         }
     }
 }

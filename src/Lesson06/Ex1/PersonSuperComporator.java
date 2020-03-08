@@ -10,15 +10,9 @@ public class PersonSuperComporator implements Comparator<Person> {
         if (name1.equals(name2)) {
             int age1 = o1.getAge();
             int age2 = o2.getAge();
-
-            if (age1 > age2) {
-                return 1;
-            } else if (age1 < age2) {
-                return -1;
-            } else {
-                return 0;
-            }
+            return Integer.compare(age1, age2);
         }
+        else
         return name1.compareTo(name2);
     }
 }

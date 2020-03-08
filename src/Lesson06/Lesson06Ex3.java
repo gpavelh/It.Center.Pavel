@@ -14,7 +14,7 @@ public class Lesson06Ex3 {
                 }
             }
         }
-        if (count / 2 <= 1) {
+        if (count / 2 < 1) {
             return true;
         }
         return false;

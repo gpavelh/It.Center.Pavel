@@ -14,9 +14,9 @@ public class Lesson06Ex1 {
             Person[] list = new Person[4];
             list[0] = new Person("Nora",5);
             list[1] = new Person("Bita", 2);
-            list[2] = new Person("Al9",4);
-            list[3] = new Person("Al9",1);
-            Arrays.sort(list, new PersonSuperComporator().reversed());
+            list[2] = new Person("Al9",60);
+            list[3] = new Person("Al9",999);
+            Arrays.sort(list, new PersonSuperComporator());
             System.out.println("Соритровка по Имени");
             for (Person s: list
                  ) {
