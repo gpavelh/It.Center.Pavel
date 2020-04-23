@@ -70,6 +70,14 @@ public class IntShop implements Basket {
             this.quantity = quantity;
         }
 
+        @Override
+        public String toString() {
+            return "Product{" +
+                    "product='" + product + '\'' +
+                    ", quantity=" + quantity +
+                    '}';
+        }
+
         public int getQuantity() {
             return quantity;
         }
@@ -84,6 +92,10 @@ public class IntShop implements Basket {
         intShop.addProduct("Phone", 1);
         intShop.addProduct("Headphones", 2);
         intShop.addProduct("Case", 5);
+        for (Product s: intShop.products
+             ) {
+            System.out.println(s.getProduct()+s.getQuantity());
+        }
         intShop.removeProduct("Phone");
         intShop.updateProductQuantity("Headphones", 2);
         System.out.println(intShop.getProducts());

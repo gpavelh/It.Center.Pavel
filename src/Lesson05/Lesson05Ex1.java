@@ -1,7 +1,5 @@
 package Lesson05; //Одновление вендингового аппарата. Использование конструктора и взаимодействие с пользователем.
 
-import Lesson02.Lesson02Ex1;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,6 +16,16 @@ public class Lesson05Ex1 {
         private final String type;
         private final double cost;
         private final String position;
+
+        public static String getType(String position) {
+            for (Product s : Product.values()
+            ) {
+                if (s.position.equals(position)) {
+                    return s.type;
+                }
+            }
+            return null;
+        }
 
         Product(String name, String type, double cost, String position) {
             this.name = name;
@@ -44,25 +52,25 @@ public class Lesson05Ex1 {
         String selectedItem = reader.readLine();
 
         if (selectedItem.equals(Product.COLAVAN.position)) {
-            method(a, Product.COLAVAN.cost);
+            method(a, Product.COLAVAN.cost, selectedItem);
         } else if (selectedItem.equals(Product.MARSWNUTS.position)) {
-            method(a, Product.MARSWNUTS.cost);
+            method(a, Product.MARSWNUTS.cost, selectedItem);
         } else if (selectedItem.equals(Product.MILKCOUNT.position)) {
-            method(a, Product.MILKCOUNT.cost);
+            method(a, Product.MILKCOUNT.cost, selectedItem);
         } else if (selectedItem.equals(Product.SNICSUPER.position)) {
-            method(a, Product.SNICSUPER.cost);
+            method(a, Product.SNICSUPER.cost, selectedItem);
         } else {
             System.out.println("Ошибка ввода");
         }
     }
 
-    public static void method(double a, double cost) {
+    public static void method(double a, double cost, String selectedItem) {
         if (a > cost) {
             double q1 = a - cost;
             BigDecimal q = new BigDecimal(q1).setScale(2, RoundingMode.HALF_UP);
-            System.out.println("Спасибо за покупку !" + " Заберите Вашу сачу: " + q + "$");
+            System.out.println("Спасибо за покупку " + "\"" + Product.getType(selectedItem) + "\"" + "!" + " Заберите Вашу сачу: " + q + "$");
         } else if (a == cost) {
-            System.out.println("Спасибо за покупку!");
+            System.out.println("Спасибо за покупку " + "\"" + Product.getType(selectedItem) + "\"" + "!");
         } else if (a < cost) {
             System.out.println("Недостаточно средств!");
         } else {
