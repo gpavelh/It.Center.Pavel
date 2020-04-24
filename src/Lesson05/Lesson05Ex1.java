@@ -45,33 +45,34 @@ public class Lesson05Ex1 {
         System.out.println("| Напиток:       " + Product.MILKCOUNT.type + "       Цена:  " + Product.MILKCOUNT.cost + "$" + "     Позиция:  " + Product.MILKCOUNT.position + " |");
         System.out.println("| Шоколадка:     " + Product.SNICSUPER.type + "        Цена:  " + Product.SNICSUPER.cost + "$" + "     Позиция:  " + Product.SNICSUPER.position + " |");
         System.out.println("---------------------------------------------------------------------");
-        System.out.println("Внесите сумму в $: ");
 
-        double a = Double.parseDouble(reader.readLine());
+        System.out.println("Внесите сумму в $: ");
+        double amount = Double.parseDouble(reader.readLine());
+
         System.out.println("Укажите позицию товара в формате \"Ряд\" и \"Номер\" (Пример: a2): ");
         String selectedItem = reader.readLine();
 
         if (selectedItem.equals(Product.COLAVAN.position)) {
-            method(a, Product.COLAVAN.cost, selectedItem);
+            method(amount, Product.COLAVAN.cost, selectedItem);
         } else if (selectedItem.equals(Product.MARSWNUTS.position)) {
-            method(a, Product.MARSWNUTS.cost, selectedItem);
+            method(amount, Product.MARSWNUTS.cost, selectedItem);
         } else if (selectedItem.equals(Product.MILKCOUNT.position)) {
-            method(a, Product.MILKCOUNT.cost, selectedItem);
+            method(amount, Product.MILKCOUNT.cost, selectedItem);
         } else if (selectedItem.equals(Product.SNICSUPER.position)) {
-            method(a, Product.SNICSUPER.cost, selectedItem);
+            method(amount, Product.SNICSUPER.cost, selectedItem);
         } else {
             System.out.println("Ошибка ввода");
         }
     }
 
-    public static void method(double a, double cost, String selectedItem) {
-        if (a > cost) {
-            double q1 = a - cost;
-            BigDecimal q = new BigDecimal(q1).setScale(2, RoundingMode.HALF_UP);
-            System.out.println("Спасибо за покупку " + "\"" + Product.getType(selectedItem) + "\"" + "!" + " Заберите Вашу сачу: " + q + "$");
-        } else if (a == cost) {
+    public static void method(double amount, double cost, String selectedItem) {
+        if (amount > cost) {
+            double changeD = amount - cost;
+            BigDecimal change = new BigDecimal(changeD).setScale(2, RoundingMode.HALF_UP);
+            System.out.println("Спасибо за покупку " + "\"" + Product.getType(selectedItem) + "\"" + "!" + " Заберите Вашу сачу: " + change + "$");
+        } else if (amount == cost) {
             System.out.println("Спасибо за покупку " + "\"" + Product.getType(selectedItem) + "\"" + "!");
-        } else if (a < cost) {
+        } else if (amount < cost) {
             System.out.println("Недостаточно средств!");
         } else {
             System.out.println("Ошибка ввода");
