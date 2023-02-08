@@ -1,81 +1,33 @@
 package Test;
 
 
-/*
-Поговорим о музыке
-*/
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
 
 public class Solution {
-    public static volatile Runway RUNWAY = new Runway();   //1 взлетная полоса
+    public static void main(String[] args) throws IOException {
+        FileInputStream inputStream = new FileInputStream("C:\\Users\\gh\\Desktop\\data.txt");
+        // Создаем поток-записи-байт-в-файл
+        FileOutputStream outputStream = new FileOutputStream("C:\\Users\\gh\\Desktop\\result.txt");
 
-    public static void main(String[] args) throws InterruptedException {
-        Plane plane1 = new Plane("Самолет #1");
-        Plane plane2 = new Plane("Самолет #2");
-        Plane plane3 = new Plane("Самолет #3");
-    }
-
-    private static void waiting() {
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
+        if (inputStream.available() > 0) {
+            //читаем весь файл одним куском
+            byte[] buffer = new byte[inputStream.available()];
+            int count = inputStream.read(buffer);
+            outputStream.write(buffer, 0, count);
         }
 
-    }
-
-    private static void takingOff() {
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-        }
-    }
-
-    public static class Plane extends Thread {
-        public Plane(String name) {
-            super(name);
-            start();
-        }
-
-        public void run() {
-            boolean isAlreadyTakenOff = false;
-            while (!isAlreadyTakenOff) {
-                if (RUNWAY.trySetTakingOffPlane(this)) {    //если взлетная полоса свободна, занимаем ее
-                    System.out.println(getName() + " взлетает");
-                    takingOff();//взлетает
-                    System.out.println(getName() + " уже в небе");
-                    isAlreadyTakenOff = true;
-                    RUNWAY.setTakingOffPlane(null);
-                } else if (!this.equals(RUNWAY.getTakingOffPlane())) {  //если взлетная полоса занята самолетом
-                    System.out.println(getName() + " ожидает");
-                    waiting(); //ожидает
-                }
-            }
-        }
-    }
-
-    public static class Runway { //взлетная полоса
-        private Thread t;
-
-        public Thread getTakingOffPlane() {
-            return t;
-        }
-
-        public void setTakingOffPlane(Thread t) {
-            synchronized (this) {
-                this.t = t;
-            }
-        }
-
-        public boolean trySetTakingOffPlane(Thread t) {
-            synchronized (this) {
-                if (this.t == null) {
-                    this.t = t;
-                    return true;
-                }
-                return false;
-            }
-        }
+        inputStream.close();
+        outputStream.close();
     }
 }
+
+
+
+
 
 
 

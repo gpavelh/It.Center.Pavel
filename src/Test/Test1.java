@@ -1,20 +1,30 @@
 package Test;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Test1 {
+
     public static void main(String[] args) {
-        try {
-            int a = 2;
-        } catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            System.out.println("a");
+
+        List<String> list = new ArrayList<>();
+
+        checkArray(list);
+    }
+
+    public static void checkArray(List<String> list) {
+        String best = list.get(0);
+
+        for (int i = 1; i < list.size(); i++) {
+
+            String[] var = list.get(i).split(",");
+            String[] bestStudentVar = best.split(",");
+
+            if (Integer.parseInt(var[1]) > Integer.parseInt(bestStudentVar[1])) {
+                best = list.get(i);
+            }
         }
+        System.out.println(best.split(",")[0]);
     }
 }
 
